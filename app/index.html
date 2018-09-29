@@ -5,12 +5,25 @@
         <title>Electron Timer</title>
         <link rel="stylesheet" href="css/index.css">
     </head>
-
     <body>
-        <h1>Hello World!</h1>
+        <section class="container">
+            <div id="link-about">
+                <img class="info-button" src="img/info-button.svg">
+            </div>
+            <h1 class="title">Electron Timer</h1>
+            <div class="timer">
+                <div class="clock">
+                    <span class="time">00:10:20</span>
+                </div><!--
+                --><div class="controls">
+                    <img class="play-button" src="img/play-button.svg">
+                </div>
+                <div class="description-container">
+                    <span class="description">Description</span>
+                </div>
+            </div>
+        </section>
 
-        <a href="#" id="link-about">About</a>
-
-        <script src="js/renderer.js"></script>
+        <script>require('./js/renderer')</script>
     </body>
 </html>
