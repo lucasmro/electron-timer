@@ -36,3 +36,7 @@ ipcMain.on('open-about-window', () => {
 ipcMain.on('close-about-window', () => {
     aboutWindow.close();
 })
+
+ipcMain.on('activity-stopped', (event, activity, duration) => {
+     console.log(`Activity: ${activity}, Duration: ${duration}`);
+})

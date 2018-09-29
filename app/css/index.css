@@ -55,14 +55,14 @@ html, body {
     display: inline-block;
     padding-top: 8px;
 }
-.description-container{
+.activity-container{
     height: 25%;
     width: 100%;
     text-align: center;
     margin-top: 2px;
     background-color: #97A7F2;
 }
-.description{
+.activity{
     display: inline-block;
     padding-top: 5px;
     font-size: 1.3em;
