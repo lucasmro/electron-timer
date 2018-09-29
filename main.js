@@ -20,7 +20,7 @@ ipcMain.on('open-about-window', () => {
     if (aboutWindow == null) {
         aboutWindow = new BrowserWindow({
             width: 300,
-            height: 200,
+            height: 220,
             alwaysOnTop: true,
             frame: false
         });
