@@ -20,7 +20,9 @@ ipcMain.on('open-about-window', () => {
     if (aboutWindow == null) {
         aboutWindow = new BrowserWindow({
             width: 300,
-            height: 200
+            height: 200,
+            alwaysOnTop: true,
+            frame: false
         });
 
         aboutWindow.on('closed', () => {
@@ -29,4 +31,8 @@ ipcMain.on('open-about-window', () => {
     }
 
     aboutWindow.loadURL(`file://${__dirname}/app/about.html`);
+})
+
+ipcMain.on('close-about-window', () => {
+    aboutWindow.close();
 })
