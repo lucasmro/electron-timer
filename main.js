@@ -8,5 +8,9 @@ app.on('ready', () => {
         height: 600
     });
 
-    mainWindow.loadURL("http://www.google.com");
+    mainWindow.loadURL(`file://${__dirname}/app/index.html`);
+});
+
+app.on('window-all-closed', () => {
+    app.quit();    
 });
