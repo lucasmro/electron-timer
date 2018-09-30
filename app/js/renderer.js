@@ -1,10 +1,18 @@
 const { ipcRenderer } = require('electron');
 const timer = require('./timer');
+const data = require('../../data');
 
 let linkAbout = document.querySelector('#link-about');
 let buttonPlay = document.querySelector('.play-button')
 let time = document.querySelector('.time');
 let activity = document.querySelector('.activity');
+
+window.onload = () => {
+    data.getActivityData(activity.textContent)
+        .then((data) => {
+            time.textContent = data.duration;
+        });
+}
 
 linkAbout.addEventListener('click' , function() {
     ipcRenderer.send('open-about-window');

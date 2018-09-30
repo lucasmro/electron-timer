@@ -6,13 +6,21 @@ module.exports = {
         let filename = __dirname + '/data/' + activity + '.json';
 
         if (fs.existsSync(filename)) {
-            // Save data
+            this.writeData(filename, duration);
         } else {
             this.createActivityFile(filename, {})
                 .then(() => {
-                    // Save data
+                    this.writeData(filename, duration);
                 });
         }
+    },
+    writeData(filename, activityDuration) {
+        let data = {
+            updatedAt: new Date().toString(),
+            duration: activityDuration
+        }
+
+        jsonfile.writeFile(filename, data);
     },
     createActivityFile(filename, content) {
         return jsonfile.writeFile(filename, content)
@@ -22,5 +30,10 @@ module.exports = {
             .catch((err) => {
                 console.log(err);
             });
+    },
+    getActivityData(activityName) {
+        let filename = __dirname + '/data/' + activityName + '.json';
+
+        return jsonfile.readFile(filename);
     }
 }
