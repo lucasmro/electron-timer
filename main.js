@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
+const data = require('./data');
 
 let mainWindow = null;
 
@@ -39,4 +40,5 @@ ipcMain.on('close-about-window', () => {
 
 ipcMain.on('activity-stopped', (event, activity, duration) => {
      console.log(`Activity: ${activity}, Duration: ${duration}`);
+     data.save(activity, duration);
 })
