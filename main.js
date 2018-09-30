@@ -11,7 +11,7 @@ app.on('ready', () => {
         height: 600
     });
 
-    let template = templateGenerator.buildTemplate();
+    let template = templateGenerator.buildTemplate(mainWindow);
     let trayMenu = Menu.buildFromTemplate(template);
 
     tray = new Tray(__dirname + '/app/img/icon-tray.png');

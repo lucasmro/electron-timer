@@ -1,7 +1,7 @@
 const data = require('./data');
 
 module.exports = {
-    buildTemplate() {
+    buildTemplate(win) {
         let template = [
             {
                 'label':'Activities'
@@ -15,7 +15,10 @@ module.exports = {
         activityNames.forEach((activityName) => {
             let menuItem = {
                 label: activityName,
-                type: 'radio'
+                type: 'radio',
+                click: () => {
+                    win.send('activity-changed', activityName);
+                }
             };
 
             template.push(menuItem);

@@ -32,3 +32,11 @@ buttonPlay.addEventListener('click', function() {
     imgs = imgs.reverse();
     buttonPlay.src = imgs[0];
 })
+
+ipcRenderer.on('activity-changed', (event, activityName) =>{
+    data.getActivityData(activityName)
+        .then((data)=>{
+            time.textContent = data.duration;
+        })
+    activity.textContent = activityName;
+});
