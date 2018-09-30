@@ -48,4 +48,5 @@ btnAddActivity.addEventListener('click', function() {
     activity.textContent = newActivity;
     time.textContent = '00:00:00';
     txtNewActivity.value = '';
+    ipcRenderer.send('activity-added', newActivity);
 });

@@ -1,6 +1,7 @@
 const data = require('./data');
 
 module.exports = {
+    initializedTemplate: null,
     buildTemplate(win) {
         let template = [
             {
@@ -24,6 +25,20 @@ module.exports = {
             template.push(menuItem);
         })
 
+        this.initializedTemplate = template;
+
         return template;
+    },
+    addActivityToTray(activity, win){
+        this.initializedTemplate.push({
+            label: activity,
+            type: 'radio',
+            checked: true,
+            click: () => {
+                win.send('activity-added', activity);
+            }
+        })
+
+        return this.initializedTemplate;
     }
 }

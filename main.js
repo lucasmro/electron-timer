@@ -3,8 +3,8 @@ const data = require('./data');
 const templateGenerator = require('./template')
 
 let mainWindow = null;
-
 let tray = null;
+
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
         width: 800,
@@ -50,3 +50,9 @@ ipcMain.on('activity-stopped', (event, activity, duration) => {
      console.log(`Activity: ${activity}, Duration: ${duration}`);
      data.save(activity, duration);
 })
+
+ipcMain.on('activity-added', (event, newActivity)=>{
+    let newTemplate = templateGenerator.addActivityToTray(newActivity, mainWindow);
+    let newTrayTemplate = Menu.buildFromTemplate(newTemplate);
+    tray.setContextMenu(newTrayTemplate);
+});
