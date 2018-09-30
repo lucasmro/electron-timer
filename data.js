@@ -35,5 +35,12 @@ module.exports = {
         let filename = __dirname + '/data/' + activityName + '.json';
 
         return jsonfile.readFile(filename);
+    },
+    getActivityNames() {
+        let files = fs.readdirSync(__dirname + '/data');
+
+        return files.map((file) => {
+            return file.substr(0, file.lastIndexOf('.'));
+        });
     }
 }
