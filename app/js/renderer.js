@@ -6,6 +6,8 @@ let linkAbout = document.querySelector('#link-about');
 let buttonPlay = document.querySelector('.play-button')
 let time = document.querySelector('.time');
 let activity = document.querySelector('.activity');
+let btnAddActivity = document.querySelector('.button-add-activity');
+let txtNewActivity = document.querySelector('.text-new-activity');
 
 window.onload = () => {
     data.getActivityData(activity.textContent)
@@ -39,4 +41,11 @@ ipcRenderer.on('activity-changed', (event, activityName) =>{
             time.textContent = data.duration;
         })
     activity.textContent = activityName;
+});
+
+btnAddActivity.addEventListener('click', function() {
+    let newActivity = txtNewActivity.value;
+    activity.textContent = newActivity;
+    time.textContent = '00:00:00';
+    txtNewActivity.value = '';
 });

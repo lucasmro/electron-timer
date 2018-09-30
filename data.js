@@ -20,7 +20,7 @@ module.exports = {
             duration: activityDuration
         }
 
-        jsonfile.writeFile(filename, data);
+        jsonfile.writeFile(filename, data, {spaces: 2});
     },
     createActivityFile(filename, content) {
         return jsonfile.writeFile(filename, content)
